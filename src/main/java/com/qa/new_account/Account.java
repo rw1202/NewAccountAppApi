@@ -2,9 +2,13 @@ package com.qa.new_account;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Account {
@@ -13,19 +17,27 @@ public class Account {
 	
 	@Id
 	
-	private Long id;
+	private Long ClassroomId;
 	@Column(length = 100)
+	
+	 @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_order")
+	@OneToMany
+	private Long trainerId;
+	
+	 @ManyToOne(fetch = FetchType.LAZY)
+	    @JoinColumn(name = "fk_order")
+	private Long traineeId;
 	private String firstName;
 	@Column(length = 50)
 	private String lastName;
-	@Column(length = 4)
-	private String accountNumber;
 	
-	public Account(String firstName, String lastName, String accountNumber)
+	
+	public Account(String firstName, String lastName)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.accountNumber = accountNumber;
+		
 	}
 	public String getFirstName() {
 		return firstName;
@@ -40,12 +52,7 @@ public class Account {
 		this.lastName = lastName;
 	}
 	
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
+	
 	
 	
 }

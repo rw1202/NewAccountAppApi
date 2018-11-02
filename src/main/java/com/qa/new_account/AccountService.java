@@ -53,7 +53,7 @@ package com.qa.new_account;
 				Account accountInDB=findAccount(Id);
 				accountInDB.setFirstName(acc1.getFirstName());
 				accountInDB.setLastName(acc1.getLastName());
-				accountInDB.setAccountNumber(acc1.getAccountNumber());
+				
 			
 				return "{\"message\":\"Account updated\"}";
 				}
