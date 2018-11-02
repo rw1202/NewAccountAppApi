@@ -8,10 +8,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.qa.new_account.AccountRepo;
+import com.qa.new_account.repository.AccountRepo;
 
 
-@Path ("/account")
+@Path ("/Classroom")
 
 public class AccountEndpoint {
 	
@@ -19,39 +19,39 @@ public class AccountEndpoint {
 	@Inject
 	private AccountRepo service;
 
-	@Path("/getAllAccounts")
+	@Path("/getAllRooms")
 	@GET
 	@Produces({ "application/json" })
-	public String getAllAccounts() {
-		return service.getAllAccounts();
+	public String getAllRooms() {
+		return service.getAllRooms();
 	}
 	
-	@Path("/getAccount/{Id}")
+	@Path("/getRoom/{Id}")
 	@GET
 	@Produces({ "application/json" })
-	public String getAccount(@PathParam("Id") Long Id) {
-		return service.getAccount(Id);
+	public String getRoom(@PathParam("Id") Long Id) {
+		return service.getRoom(Id);
 	}
 
-	@Path("/addAccount")
+	@Path("/addRoom")
 	@POST
 	@Produces({ "application/json" })
-	public String addAccount(String account) {
-		return service.addAccount(account);
+	public String addRoom(String account) {
+		return service.addRoom(account);
 	}
 
-	@Path("/deleteAccount/{Id}")
+	@Path("/deleteRoom/{Id}")
 	@GET
 	@Produces({ "application/json" })
-	public String deleteAccount(@PathParam("Id") Long Id) {
-		return service.deleteAccount(Id);
+	public String deleteRoom(@PathParam("Id") Long Id) {
+		return service.deleteRoom(Id);
 	}
-	@Path("/updateAccount/{Id}")
+	@Path("/updateRoom/{Id}")
 	@PUT
 	@Produces({"application/json"})
-	public String updateAccount(@PathParam("Id") Long Id, String account ) 
+	public String updateRoom(@PathParam("Id") Long Id, String account ) 
 	{
-		return service.updateAccount(Id, account);
+		return service.updateRoom(Id, account);
 	}
 
 	public void setService(AccountRepo service) {
