@@ -35,7 +35,7 @@ import com.qa.new_account.domain.ClassRoom;
 			@Transactional
 		
 		public String addRoom(String ClassRoom) {
-//			JSONUtil util = new JSONUtil();
+
 			ClassRoom acc1=util.getObjectForJSON (ClassRoom, ClassRoom.class);
 			manager.persist(acc1);
 			return "{\"message\":\"Account Added\"}";
