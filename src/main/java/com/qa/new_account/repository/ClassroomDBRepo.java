@@ -17,12 +17,12 @@ import com.qa.new_account.domain.ClassRoom;
 	@Transactional
 	@Default
 	public class ClassroomDBRepo implements ClassRoomRepo {
-		@PersistenceContext(unitName="primary")
-		private EntityManager manager;
+		
 		
 		@Inject
 		private JSONUtil util;
-		
+		@PersistenceContext(unitName="primary")
+		private EntityManager manager;
 		
 		
 		public String getAllRooms() {

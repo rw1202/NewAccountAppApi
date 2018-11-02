@@ -11,29 +11,37 @@ public class Trainee {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private Long traineeID;
+	private Long traineeId;
 	@Column(length = 100)
 	private String traineeName;
 	@Column(name="class_ID")
-	private Long classroomID;
+	private Long classRoomId;
 
-	public Long getClassroomID() {
-		return classroomID;
+	public Long getclassRoomId() {
+		return classRoomId;
 	}
 
-	public void setClassroomID(Long classroomID) {
-		this.classroomID = classroomID;
+	public void setClassRoomId(Long classRoomId) {
+		this.classRoomId = classRoomId;
 	}
 
 	public Trainee() {
 
 	}
 
-	public Long getTraineeID() {
-		return traineeID;
+	public Long getTraineeId() {
+		return traineeId;
 	}
 
-	public void setTraineeID(Long traineeID) {
-		this.traineeID = traineeID;
+	public void setTraineeId(Long traineeId) {
+		this.traineeId = traineeId;
 	}
+	public String getTraineeName() {
+		return traineeName;
+	}
+
+	public void setTraineeName(String traineeName) {
+		this.traineeName = traineeName;
+	}
+
 }

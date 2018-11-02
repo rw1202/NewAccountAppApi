@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+
+
 @Entity
 public class ClassRoom{
 	
@@ -21,16 +23,18 @@ public class ClassRoom{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "class_Id")
 	private Long ClassroomId;
-	
-	
+	@Column(length = 100)
 	 private String trainer;
 	@JoinColumn(name = "class_Id", referencedColumnName ="class_Id")
 	@OneToMany (fetch = FetchType.EAGER, cascade= CascadeType.ALL)
     private List<Trainee> trainees;
 	
 
-	
-	
+	public ClassRoom(Long ClassroomId, String trainer, List<Trainee> trainees) {
+		this.ClassroomId = ClassroomId;
+		this.trainer = trainer;
+		this.trainees = trainees;
+	}
 	public Long getClassroomId() {
 		return ClassroomId;
 	}
