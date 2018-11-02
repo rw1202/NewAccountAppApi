@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.qa.new_account.repository.AccountRepo;
+import com.qa.new_account.repository.ClassRoomRepo;
 
 
 @Path ("/Classroom")
@@ -17,7 +17,7 @@ public class AccountEndpoint {
 	
 	
 	@Inject
-	private AccountRepo service;
+	private ClassRoomRepo service;
 
 	@Path("/getAllRooms")
 	@GET
@@ -54,7 +54,7 @@ public class AccountEndpoint {
 		return service.updateRoom(Id, account);
 	}
 
-	public void setService(AccountRepo service) {
+	public void setService(ClassRoomRepo service) {
 		this.service = service;
 	}
 
